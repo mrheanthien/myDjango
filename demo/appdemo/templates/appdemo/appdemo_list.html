@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+ <div class="container" style="margin-top: 50px;">
+     <table class="table">
+         <thead>
+             <tr>
+                <th>ID</th>
+                <th>Name IP</th>
+                <th>Product Name</th>
+                <th>Actions</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for server in object_list %}
+            <tr>
+                <td>{{ server.id }}</td>
+                <td>{{ server.name }}</td>
+                <td>{{ server.ip }}</td>
+                <td><a href="{% url "server_edit" server.id %}">Update</a> <a href="{% url "server_delete" server.id %}">delete</a></td>
+            </tr>
+            {% endfor %}  
+         </tbody>
+     </table>
+     <a href="{% url "server_new" %}"><span class="btn btn-primary">Add new</span></a>
+ </div>
